@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="customers" type="customersType"/>
+  <xs:complexType name="positionType">
+    <xs:sequence>
+      <xs:element type="xs:int" name="id"/>
+      <xs:element type="xs:float" name="price"/>
+      <xs:element type="xs:byte" name="count"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="positionsType">
+    <xs:sequence>
+      <xs:element type="positionType" name="position" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderType">
+    <xs:sequence>
+      <xs:element type="xs:int" name="id"/>
+      <xs:element type="positionsType" name="positions"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ordersType">
+    <xs:sequence>
+      <xs:element type="orderType" name="order" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customerType">
+    <xs:sequence>
+      <xs:element type="xs:int" name="id"/>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="ordersType" name="orders"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="customersType">
+    <xs:sequence>
+      <xs:element type="customerType" name="customer" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
