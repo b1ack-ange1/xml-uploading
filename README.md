@@ -1,6 +1,8 @@
 # xml-uploading
 xml-uploading and parsing
 
+xsd-файл внутри проекта
+
 Реализовать веб приложение c помощью Spring:
 1. Веб форма, которая на вход получает xml файл вид:
 	<customers>
